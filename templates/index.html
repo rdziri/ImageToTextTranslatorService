@@ -1,0 +1,71 @@
+
+<html>
+	<head>
+<style>
+body {
+	background-image: url('https://images.freecreatives.com/wp-content/uploads/2016/04/Free-Website-BAckgrounds1.jpg');
+	width: 100%; height: 100%; 
+	background-position: center; 
+	background-repeat: no-repeat; 
+	background-size: cover;
+}
+</style>
+		<title>Rayan's Text Translation/Recogintion Program</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />        
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	</head>
+	<body>
+	<h3 align="center">
+		<font face="Lato" color="white" size="6">Text Recogniton</font>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		
+			<a href="#"><font face="Lato" color="white" size="4.5">USING HTML AND PYTHON</font></a>&nbsp;&nbsp;&nbsp;&nbsp;
+	</h3>
+		<h1><center></center></h1>
+		<div class="container">
+	        <p>
+			{% with messages = get_flashed_messages() %}
+			  {% if messages %}
+			    <ul>
+			    {% for message in messages %}
+			      <li>{{ message }}</li>
+			    {% endfor %}
+			    </ul>
+			  {% endif %}
+			{% endwith %}
+	        </p>
+		<div class="row">
+		<h3><font face="Lato" color="white" size="6">Choose a file to upload:</h3>
+		<form method="post" action="/" enctype="multipart/form-data">
+			<p> <input type="file" name="file" class="form-control" autocomplete="off" required> </p>
+			<h2>Choose the language you would like to translate to:</h2>
+			 <select name="language">
+				<option value="">--Select language--</option>
+				 <option value="en">English</option>
+				 <option value="fr">French</option>
+				 <option value="de">German</option>
+				 <option value="it">Italian</option>
+		 		 <option value="es">Spanish</option>
+			 </select>
+			<BR>
+			<BR>
+			<p> <input type="submit" value="Submit" class="btn btn-info"> </p>
+		</form>
+		{% if extractedText %}
+			<h3>The extracted text in {{ srcLanguage }}</h3>
+			<div>
+			    <p>{{ extractedText }}</p>
+			</div>
+		{% endif %}
+		{% if translatedText %}
+			<h3>The translated text in {{ destLanguage }}</h3>
+			<div>
+			    <p>{{ translatedText }}</p>
+			</div>
+		{% endif %}
+	</body>
+</html>
+ 
